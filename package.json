@@ -1,6 +1,6 @@
 {
-  "name": "@gatsbystorefront/gatsby-theme-storefront-shopify",
-  "version": "2.1.6",
+  "name": "@cloudexible/gatsby-theme-storefront-shopify",
+  "version": "2.2.0",
   "keywords": [
     "gatsbystorefront",
     "shopify",
@@ -9,13 +9,12 @@
     "gatsby-plugin",
     "gatsby-source-shopify"
   ],
-  "author": {
-    "name": "Pavel Ivanov",
-    "email": "paveliv@gmail.com",
-    "url": "https://gatsbystorefront.com/"
-  },
+  "author": "Pavel Ivanov <paveliv@gmail.com> (https://gatsbystorefront.com/)",
   "main": "index.js",
-  "repository": "https://github.com/gatsbystorefront/gatsby-theme-storefront-shopify",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudexible/gatsby-theme-storefront-shopify.git"
+  },
   "homepage": "https://gatsbystorefront.com/",
   "license": "MPL-2.0",
   "scripts": {
@@ -97,5 +96,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "description": "<p align=\"center\">\r <img alt=\"Logo\" src=\"https://gatsbystorefront-static.now.sh/gatsbystorefront_readme_logo.png\"/>\r </p>",
+  "bugs": {
+    "url": "https://github.com/gatsbystorefront/gatsby-theme-storefront-shopify/issues"
   }
 }

@@ -212,11 +212,13 @@ const createCollectionsPages = async (
   graphql,
   productsPerCollectionPage,
   createPage,
-  finalCartPagePath
+  finalCartPagePath,
+  collectionTitles
 ) => {
+  const filter = collectionTitles ? `title: {in: ["${collectionTitles.split(',').join('\",\"')}"]}` : "";
   const queryCollections = await graphql(`
     {
-      collections: allShopifyCollection {
+      collections: allShopifyCollection (filter: {${filter}}) {
         nodes {
           handle
           products {
@@ -266,10 +268,11 @@ const createCollectionsPages = async (
   }
 };
 
-const createProductsPages = async (graphql, createPage, finalCartPagePath) => {
+const createProductsPages = async (graphql, createPage, finalCartPagePath, productTags) => {
+  const filter = productTags ? `tags: {in: ["${productTags.split(',').join('\",\"')}"]}` : "";
   const queryProducts = await graphql(`
     {
-      products: allShopifyProduct {
+      products: allShopifyProduct (filter: {${filter}}) {
         nodes {
           handle
           fields {
@@ -520,10 +523,11 @@ exports.createPages = async ({ graphql, actions }, options) => {
     graphql,
     productsPerCollectionPage,
     createPage,
-    finalCartPagePath
+    finalCartPagePath,
+    options.collectionTitles
   );
 
-  await createProductsPages(graphql, createPage, finalCartPagePath);
+  await createProductsPages(graphql, createPage, finalCartPagePath, options.productTags);
 
   await createPoliciesPages(graphql, createPage, finalCartPagePath);
 

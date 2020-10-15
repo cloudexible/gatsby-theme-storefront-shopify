@@ -1,6 +1,8 @@
 module.exports = ({
   shopName,
   accessToken,
+  collectionTitles,
+  productTags,
   shopifyLite = false,
   imageQuality = '95',
   manifest = {},
@@ -125,6 +127,8 @@ module.exports = ({
       currency: 'USD',
       productsPerCollectionPage: '9',
       articlesPerBlogPage: '6',
+      collectionTitles: collectionTitles,
+      productTags: productTags,
     },
   },
 });
